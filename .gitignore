@@ -1,0 +1,4 @@
+/.nrepl-port
+/target/stale/leiningen.core.classpath.extract-native-dependencies
+/target/classes/META-INF/maven/mastermind/mastermind/pom.properties
+/target/repl-port

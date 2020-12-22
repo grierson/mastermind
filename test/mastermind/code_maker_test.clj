@@ -29,6 +29,7 @@
   (score [1 2 3 4] [1 2 4 3]) => [2 2])
 
 (fact "duplicate colours within guess"
+  (score [1 0 0 0] [2 1 1 1]) => [0 1]
   (score [1 2 3 4] [3 3 3 4]) => [2 0]
   (score [1 2 3 4] [4 3 3 4]) => [2 0]
   (score [1 2 3 4] [4 4 3 4]) => [2 0])
