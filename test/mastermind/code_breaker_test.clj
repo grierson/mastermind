@@ -1,6 +1,6 @@
-(ns mastermind.core-test
+(ns mastermind.code-breaker-test
   (:require [midje.sweet :refer :all]
-            [mastermind.core :refer :all]))
+            [mastermind.code-breaker :refer :all]))
 
 (facts "Code Breaker"
   (fact "initial guess"
