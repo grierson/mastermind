@@ -1,4 +1,5 @@
-(ns mastermind.code-breaker)
+(ns mastermind.code-breaker
+ (:require [mastermind.code-maker :as cm]))
 
 (defn guess->number [guess]
   (reduce #(+ (* 6 %1) %2) guess))
@@ -15,9 +16,18 @@
       inc
       number->guess))
 
+(defn next-guess [last-guess past-guesses]
+  (loop [guess (inc-guess last-guess)]
+    (if (= guess [0 0 0 0])
+      :error
+      (if (every? identity (for [[past-guess past-score] past-guesses]
+                             (= (cm/score guess past-guess)
+                                past-score)))
+        guess
+        (recur (inc-guess guess))))))
 
 (defn break-code [last-guess past-guesses]
   (if (nil? last-guess)
     [0 0 0 0]
-    [1 1 1 1]))
+    (next-guess last-guess past-guesses)))
 
